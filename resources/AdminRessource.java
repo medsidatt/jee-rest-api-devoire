@@ -17,7 +17,7 @@ import mr.iscae.Produit;
 import mr.iscae.services.AdminService;
 import mr.iscae.services.ProduitService;
 
-@Path("/admin")
+@Path("secure/admin")
 public class AdminRessource {
 
 	private AdminService adminService = new AdminService();

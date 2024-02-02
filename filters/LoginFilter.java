@@ -20,16 +20,16 @@ public class LoginFilter extends HttpFilter implements Filter {
        
   
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-//		HttpServletResponse res = (HttpServletResponse) response;
-//		HttpServletRequest req = (HttpServletRequest) request;
-//		
-//		HttpSession session = req.getSession();
-//		boolean loged = (session != null);
-//		if(!isLoggedIn(req)) {
-//			res.sendRedirect(req.getContextPath() + "/login");
-//            return;
-//			
-//		}
+		HttpServletResponse res = (HttpServletResponse) response;
+		HttpServletRequest req = (HttpServletRequest) request;
+		
+		HttpSession session = req.getSession();
+		boolean loged = (session != null);
+		if(!isLoggedIn(req)) {
+			res.sendRedirect(req.getContextPath() + "/login");
+            return;
+			
+		}
 		chain.doFilter(request, response);
 	}
 

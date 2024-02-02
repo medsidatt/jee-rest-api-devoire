@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
         	 session.setAttribute("username", "admin");
              session.setAttribute("userRole", "admin");
         	
-        	response.sendRedirect(request.getContextPath() + "/admin/directeurs");
+        	response.sendRedirect(request.getContextPath() + "/secure/admin/directeurs");
         } else {
         	response.sendRedirect(request.getContextPath() + "/login");
         }
