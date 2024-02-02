@@ -20,10 +20,8 @@ import mr.iscae.services.ProduitService;
 @Path("/admin")
 public class AdminRessource {
 
-	private static AdminService adminService = new AdminService();
-	private static ProduitService produitService = new ProduitService();
-	private static ProduitRessource produitRessource = new ProduitRessource();
-	
+	private AdminService adminService = new AdminService();
+	private ProduitService produitService = new ProduitService();
 	
 	@GET
 	@Path("/directeurs")
@@ -72,23 +70,24 @@ public class AdminRessource {
 	}
 	
 	
+	/*
 	
-	
-	///////////////////////////////////////
-   ///////////////////////////////////////
+		///////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\///////////////////////////////////////
+	*/
 	
 	@GET
 	@Path("/produits")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Produit> getAllUsers() {
-		return produitRessource.getAllProduits();
+		return produitService.getAllProduits();
 	}
 	
 	@GET
 	@Path("/produits/{produitId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Produit findProduitById(@PathParam("produitId") int theId) {
-		return produitRessource.findProduitById(theId);
+		return produitService.findProduitById(theId);
 	}
 	
 	@POST
@@ -96,7 +95,7 @@ public class AdminRessource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
     public Produit createProduit(Produit produit) {
-        return produitRessource.createProduit(produit);
+		return produitService.creacteProduit(produit);
     }
 	
 	@PUT
@@ -104,7 +103,7 @@ public class AdminRessource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
     public Response updateProduit(@PathParam("produitId") int theId, Produit produit) {
-        return produitRessource.updateProduit(theId, produit);
+		return produitService.updateProduit(produit, theId);
     }
 	
 	
@@ -112,7 +111,7 @@ public class AdminRessource {
 	@Path("/produits/{produitId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response deleteProduit(@PathParam("produitId") int theId) {
-	   return produitRessource.removeProduitById(theId);
+		return produitService.removeProduitById(theId);
 	}
 	
 }
