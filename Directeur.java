@@ -6,8 +6,8 @@ public class Directeur extends User {
 		
 	}
 	
-	public Directeur(int id, String firstName, String lastName, String password) {
-		super(id, firstName, lastName, password);
+	public Directeur(int id, String userName, String password, String role) {
+		super(id, userName, password, role);
 	}
 	
 }

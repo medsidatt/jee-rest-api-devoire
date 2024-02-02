@@ -12,8 +12,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import mr.iscae.Directeur;
 import mr.iscae.Produit;
+import mr.iscae.User;
 import mr.iscae.services.AdminService;
 import mr.iscae.services.ProduitService;
 
@@ -24,46 +24,46 @@ public class AdminRessource {
 	private ProduitService produitService = new ProduitService();
 	
 	@GET
-	@Path("/directeurs")
+	@Path("/users")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Directeur> getAllDirecteurs() {
-		List<Directeur> directeurs = adminService.getAllDirecteurs();
+	public List<User> getAllUsers() {
+		List<User> directeurs = adminService.getAllUsers();
 		return directeurs;
 	}
 	
 	@GET
-	@Path("/directeurs/{directeurId}")
+	@Path("/users/{userId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Directeur findDirecteurById(@PathParam("directeurId") int theId) {
-		Directeur directeur = adminService.findDirecteurById(theId);
-		return directeur;
+	public User findUserById(@PathParam("userId") int theId) {
+		User user = adminService.findUserById(theId);
+		return user;
 	}
 	
 	@POST
-	@Path("/directeurs")
+	@Path("/users")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-    public Directeur createDirecteur(Directeur directeur) {
-        return adminService.creacteDirecteur(directeur);
+    public User createUser(User user) {
+        return adminService.creacteUser(user);
     }
 	
 	@PUT
-	@Path("/directeurs/{directeurId}")
+	@Path("/users/{userId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response updateDirecteur(@PathParam("directeurId") int theId, Directeur directeur) {
-        return adminService.updateDirecteur(directeur, theId);
+    public Response updateUser(@PathParam("userId") int theId, User user) {
+        return adminService.updateUser(user, theId);
     }
 	
 	
 	@DELETE
-	@Path("/directeurs/{directeurId}")
+	@Path("/users/{userId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteDirecteur(@PathParam("directeurId") int theId) {
-	    boolean directeurRemoved = adminService.removeDirecteurById(theId);
+	public Response deleteUser(@PathParam("userId") int theId) {
+	    boolean userRemoved = adminService.removeUserById(theId);
 
-	    if (directeurRemoved) {
-	        return Response.ok("Le Direteur avec id: " +  theId + " est suprime").build();
+	    if (userRemoved) {
+	        return Response.ok("L'utilisateur avec id: " +  theId + " est suprime").build();
 	    } else {
 	        return Response.status(Response.Status.NOT_FOUND).build();
 	    }
@@ -79,7 +79,7 @@ public class AdminRessource {
 	@GET
 	@Path("/produits")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Produit> getAllUsers() {
+	public List<Produit> getAllProduits() {
 		return produitService.getAllProduits();
 	}
 	

@@ -5,7 +5,6 @@ import java.util.List;
 
 import jakarta.ws.rs.core.Response;
 import mr.iscae.Produit;
-import mr.iscae.User;
 
 public class ProduitService {
 
@@ -22,6 +21,24 @@ public class ProduitService {
 	public Produit findProduitById (int theId) {
 		for(Produit produit : produits) {
 			if(produit.getId() == theId) {
+				return produit;
+			}
+		}
+		return null;
+	}
+	
+	public Produit findProduitByCodeBare (String theCodeBare) {
+		for(Produit produit : produits) {
+			if(produit.getCodeBare() == theCodeBare) {
+				return produit;
+			}
+		}
+		return null;
+	}
+	
+	public Produit findProduitByName (String name) {
+		for(Produit produit : produits) {
+			if(produit.getName() == name) {
 				return produit;
 			}
 		}

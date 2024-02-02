@@ -7,17 +7,17 @@ public class User {
 	@JsonProperty
 	private int id;
 	@JsonProperty
-	private String firstName;
-	@JsonProperty
-	private String lastName;
+	private String userName;
 	@JsonProperty
 	private String password;
+	@JsonProperty
+	private String role;
 	
-	public User(int id, String firstName, String lastName, String password) {
+	public User(int id, String userName, String password, String role) {
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.userName = userName;
 		this.password = password;
+		this.role = role;
 	}
 
 	public User() {
@@ -33,20 +33,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 	
@@ -56,6 +48,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	

@@ -15,7 +15,7 @@ import jakarta.ws.rs.core.Response;
 import mr.iscae.Produit;
 import mr.iscae.services.ProduitService;
 
-@Path("/directeur")
+@Path("/secure/directeur")
 public class DirecteurRessource {
 
 	private ProduitService produitService = new ProduitService();
@@ -33,6 +33,20 @@ public class DirecteurRessource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Produit findProduitById(@PathParam("produitId") int theId) {
 		return produitService.findProduitById(theId);
+	}
+	
+	@GET
+	@Path("/produits/{theCodeBare}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Produit findProduitCodeBare(@PathParam("theCodeBare") String theCodeBare) {
+		return produitService.findProduitByCodeBare(theCodeBare);
+	}
+	
+	@GET
+	@Path("/produits/{theName}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Produit findProduitByName(@PathParam("theName") String theName) {
+		return produitService.findProduitByName(theName);
 	}
 	
 	@POST
