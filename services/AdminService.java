@@ -53,7 +53,7 @@ public class AdminService {
 	}
 	
 	
-	public boolean removeUserById(int userId) {
+	public boolean removeDirecteurById(int userId) {
         User directeurToRemove = findDirecteurById(userId);
 
         if (directeurToRemove != null) {
@@ -63,5 +63,8 @@ public class AdminService {
             return false;
         }
     }
+	
+	
+	
 	
 }
